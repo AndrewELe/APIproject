@@ -45,11 +45,6 @@ exports.loginUser = async (req, res) => {
 exports.updateUser = async (req, res) => {
     try{
         const updates = Object.keys(req.body)
-        const allowedUpdates = ['name', 'email', 'password']
-        const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
-        if(!isValidOperation){
-            throw new Error('Invalid updates')
-        }
         updates.forEach((update) => req.user[update] = req.body[update])
         await req.user.save()
         res.json(req.user)
