@@ -1,4 +1,4 @@
-require('dotev').config()
+require('dotenv').config()
 const mongoose = require('mongoose')  //middleware that allows connection of data to MongoDB
 const PORT = process.env.PORT || 3000 //setting port num to 3000
 const app = require('./app') //pointing to app.js file for utilize required middleware for API requests

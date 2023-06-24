@@ -7,8 +7,7 @@ const userSchema = new mongoose.Schema({ //creating userSchema for user data
     name: { type: String, required: true }, //name field for userSchema
     email: { type: String, required: true, unique: true }, //email field for userSchema
     password: { type: String, required: true }, //password field for userSchema
-    message: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Message' }], //message field for userSchema, points to message.js file for model reference
-    secretWord: { type: String, required: true } //secretWord field for userSchema
+    //message: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Message' }], //message field for userSchema, points to message.js file for model reference
 }, { 
     timestamps: true  //timestamps for userSchema
 })
@@ -20,8 +19,8 @@ userSchema.pre('save', async function(next){
     next()
 })
 
-userSchema.methods.generateToken = function(){
-    const token = jwt.sign({ id: this._id }, secretWord) //creating token with user id and SECRET word from .env file
+userSchema.methods.generateAuthToken = function(){
+    const token = jwt.sign({ id: this._id }, process.env.SECRET) //creating token with user id and SECRET word from .env file
     return token
 }
 
