@@ -9,7 +9,7 @@ let mongoServer;
 
 beforeAll(async () => {
     mongoServer = await MongoMemoryServer.create()
-    await mongoose.connect(mongoServer.getURI())
+    await mongoose.connect(mongoServer.getUri())
 })
 
 afterAll(async () => {
@@ -22,7 +22,7 @@ afterAll(async () => {
 
         test('this test should be creating a new user', async () => {
             const response = await request(app)
-                .post('/users/createUser')
+                .post('/users')
                 .send({
                     name: 'test',
                     email: 'test@funky.com',
@@ -33,8 +33,7 @@ afterAll(async () => {
             expect(response.body).toHaveProperty('token')
         })
 
-        test('this test should login a user', async () => {
-            const user = new User({
+        test('this test should login a user', async () => {            const user = new User({
                 name: 'test1',
                 email: 'test1@gunky.com',
                 password: 'test1234'
@@ -63,6 +62,7 @@ afterAll(async () => {
             await user.save()
             const token = await user.generateAuthToken()
 
+
             const response = await request(app)
                 .put(`/users/${user._id}`)
                 .set('Authorization', `Bearer ${token}`)
@@ -72,6 +72,8 @@ afterAll(async () => {
                     passowrd: 'newTest12345'
                 })
         
+            console.log(response.body.user.name)
+
             expect(response.statusCode).toBe(200)
         })
 
@@ -85,8 +87,9 @@ afterAll(async () => {
             const token = await user.generateAuthToken()
 
             const response = await request(app)
-                .set('Authorization', `Bearer ${token}`)
                 .delete(`/users/${user._id}`)
+                .set('Authorization', `Bearer ${token}`)
+
         
             expect(response.statusCode).toBe(204)
         })
