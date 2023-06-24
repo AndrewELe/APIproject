@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config() //require access for dotenv
 const mongoose = require('mongoose') //require middle for mongoDB 
 const bcrypt = require('bcrypt') //require bcrypt for password hashing
 const jwt = require('jsonwebtoken') //require jsonwebtoken for token creation
