@@ -62,17 +62,15 @@ afterAll(async () => {
             await user.save()
             const token = await user.generateAuthToken()
 
-
             const response = await request(app)
                 .put(`/users/${user._id}`)
                 .set('Authorization', `Bearer ${token}`)
                 .send({ 
                     name: 'test2 modified', 
-                    email: 'test2Modified@gunk.com',
-                    passowrd: 'newTest12345'
+                    email: 'test2Modified@gunk.com'
                 })
         
-            console.log(response.body.user.name)
+            console.log(user._id)
 
             expect(response.statusCode).toBe(200)
         })
@@ -91,6 +89,6 @@ afterAll(async () => {
                 .set('Authorization', `Bearer ${token}`)
 
         
-            expect(response.statusCode).toBe(204)
+            expect(response.statusCode).toBe(200)
         })
     })

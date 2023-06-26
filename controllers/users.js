@@ -45,9 +45,10 @@ exports.loginUser = async (req, res) => {
 exports.updateUser = async (req, res) => {
     try{
         const updates = Object.keys(req.body)
-        updates.forEach((update) => req.user[update] = req.body[update])
-        await req.user.save()
-        res.json(req.user)
+        const targetUser = await User.findOne({ _id: req.params.id })
+        updates.forEach(update => targetUser[update] = req.body[update])
+        await targetUser.save()
+        res.json({ message: 'user updated' })
     }catch(error){
         res.status(400).json({ message: error.message })
     }
@@ -55,8 +56,13 @@ exports.updateUser = async (req, res) => {
 
 exports.deleteUser = async (req, res) => {
     try{
-        await req.user.deleteOne()
-        res.sendStatus(204)
+        const targetUser = await User.findOne({ _id: req.params.id })
+        const result = await targetUser.deleteOne()
+        if (result.deletedCount === 1){
+            res.json({ message: 'user deleted' })
+        } else {
+            res.json({ message: 'user not found' })
+        }
     }catch(error){
         res.status(500).json({ message: error.message })
     }
