@@ -1,6 +1,22 @@
-# Building a basic API for message encoding, will later be connecting this API to a front end to display the base64 enconded text in "Aurebesh" the Star Wars common written language.
+## This is a backend API that allows user login and the user is able to create a message to encode. Other functionality includes the user to decode messages but the appropriate keyword must be provided 
 
-### the user will need to log in to the server using a hashed password and the encoded message will be specfic to each user
+---
+
+## Getting started
+
+### Installation
+
+1: clone repositor to your local machine
+
+2: in terminal navigate to the cloned repository root directory
+
+3: run 'touch .env'
+
+4: With your system terminal, you will need to install the following packages: <br> express, bcrypt, dotenv, jsonwebtoken, mongoose, and morgan. <br> further dependecies that will need to be install for testing purposes are as follorws: <br> artillery (1.7.9), jest, mongodb-memory-server (8.12.0), and supertest. <br>
+
+5: run 'npm install express bcrypt dotenv jsonwebtoken mongoose morgan'
+
+6: run 'npm install --save-d jest mongodb-memory-server@8.12.0 artillery@1.7.9 supertest'
 
 ## progress notes
 ### 6/23/2023

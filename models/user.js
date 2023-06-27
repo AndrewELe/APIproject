@@ -7,7 +7,8 @@ const userSchema = new mongoose.Schema({ //creating userSchema for user data
     name: { type: String, required: true }, //name field for userSchema
     email: { type: String, required: true, unique: true }, //email field for userSchema
     password: { type: String, required: true }, //password field for userSchema
-    //message: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Message' }], //message field for userSchema, points to message.js file for model reference
+    secretWord: { type: String, required: true }, //secret word field fo use in msg encoding
+    message: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Message' }], //message field for userSchema, points to message.js file for model reference
 }, { 
     timestamps: true  //timestamps for userSchema
 })
