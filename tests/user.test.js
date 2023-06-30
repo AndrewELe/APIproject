@@ -26,17 +26,20 @@ afterAll(async () => {
                 .send({
                     name: 'test',
                     email: 'test@funky.com',
-                    password: 'test123'
+                    password: 'test123',
+                    secretWord: 'test'
                 })
 
             expect(response.body.user.name).toBe('test')
             expect(response.body).toHaveProperty('token')
         })
 
-        test('this test should login a user', async () => {            const user = new User({
+        test('this test should login a user', async () => {           
+            const user = new User({
                 name: 'test1',
                 email: 'test1@gunky.com',
-                password: 'test1234'
+                password: 'test1234',
+                secretWord: 'test'
             })
             await user.save()
 
@@ -57,7 +60,8 @@ afterAll(async () => {
             const user = new User({
                 name: 'test2',
                 email: 'test2@gunk.com',
-                password: 'test12345'
+                password: 'test12345',
+                secretWord: 'test'
             })
             await user.save()
             const token = await user.generateAuthToken()
@@ -79,7 +83,8 @@ afterAll(async () => {
             const user = new User({
                 name: 'test3',
                 email: 'test3@gunk.com',
-                password: 'test123456'
+                password: 'test123456',
+                secretWord: 'test'
             })
             await user.save()
             const token = await user.generateAuthToken()
@@ -92,3 +97,5 @@ afterAll(async () => {
             expect(response.statusCode).toBe(200)
         })
     })
+
+

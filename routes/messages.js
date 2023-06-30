@@ -19,6 +19,6 @@ router.get('/:id', userController.auth, messageController.displayMessage)
 router.put('/encode/:id', userController.auth, messageController.encodeMessage)
 
 //decoding message
-router.put('decode/:id', userController.auth, messageController.decodeMessage)
+router.put('/decode/:id', userController.auth, messageController.decodeMessage)
 
 module.exports = router
