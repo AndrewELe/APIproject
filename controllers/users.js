@@ -6,9 +6,6 @@ const jwt = require('jsonwebtoken')
 exports.auth = async (req, res, next) => {
     try{
         const token = req.header('Authorization').replace('Bearer ', '')
-        // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OWEyY2Q3NzBhNjlkZDE3NTBmNzlhOSIsImlhdCI6MTY4NzgyNjY5Mn0.nZV0FCOEZA_0TKjgmm7ZWTlGWouLVn2l8OK3EvMPAvI"
-        console.log(process.env.SECRET)
-        console.log(token)
         const data = jwt.verify(token, process.env.SECRET)
         const user = await User.findOne({ _id: data.id })
         if(!user){

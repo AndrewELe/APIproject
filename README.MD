@@ -4,19 +4,24 @@
 
 ## Getting started
 
+Requirements: node.js and nodemon(globally installed) postman(for unit API testing)
+
 ### Installation
 
 1: clone repositor to your local machine
 
 2: in terminal navigate to the cloned repository root directory
 
-3: run 'touch .env'
+3: run `touch .env`
+
+        MONGO_URI=mongodb+srv://RufioYrael:1VgnScxOpjGAs0VI@cluster0.y803gsb.mongodb.net/APIproject?retryWrites=true&w=majority
+        SECRET=74fca0325b5fdb3a34badb40a2581cfbd5344187e8d3432952a5abc0929c1246
 
 4: With your system terminal, you will need to install the following packages: <br> express, bcrypt, dotenv, jsonwebtoken, mongoose, and morgan. <br> further dependecies that will need to be install for testing purposes are as follorws: <br> artillery (1.7.9), jest, mongodb-memory-server (8.12.0), and supertest. <br>
 
-5: run 'npm install express bcrypt dotenv jsonwebtoken mongoose morgan'
+5: run `npm i`
 
-6: run 'npm install --save-d jest mongodb-memory-server@8.12.0 artillery@1.7.9 supertest'
+            
 
 ## progress notes
 ### 6/23/2023

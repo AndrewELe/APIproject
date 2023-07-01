@@ -73,8 +73,6 @@ afterAll(async () => {
                     name: 'test2 modified', 
                     email: 'test2Modified@gunk.com'
                 })
-        
-            console.log(user._id)
 
             expect(response.statusCode).toBe(200)
         })

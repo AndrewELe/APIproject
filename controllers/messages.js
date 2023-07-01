@@ -5,21 +5,21 @@ const Msg = require('../models/message.js')
 // exports encode message
 exports.encodeMessage = async (req, res) => {
     try{
+
         // setting specific message and user 
         const targetMessage = await Msg.findOne({ _id: req.params.id })
-        const targetUser = await User.findOne({ _id: req.user._id })
-        
-        //defining variables message and user for manipulation
-        const message = targetMessage.message
-        const key = targetUser.secretWord
+
+        const message = req.message
+        const secretWord = req.user.secretWord
 
         //encrypting message
-        const cipherText = crypto.AES.encrypt(message, key)
+        const cipherText = crypto.AES.encrypt(message, secretWord)
 
         //update the message to be the encrypted message
         targetMessage.message = cipherText
 
         await targetMessage.save()
+        res.json(targetMessage)
     }catch(error){
         res.status(400).json({ message: error.message })
     }
@@ -33,20 +33,22 @@ exports.decodeMessage = async (req, res) => {
     try{
         // setting specific message and user 
         const targetMessage = await Msg.findOne({ _id: req.params.id })
-        const targetUser = await User.findOne({ _id: req.user._id })
         
         //defining variables message and user for manipulation
-        const message = targetMessage.message
-        const key = targetUser.secretWord
+        const message = req.message
+        const secretWord = req.user.secretWord
 
         //decrypting message
-        const bytes = crypto.AES.decrypt(message, key)
-        const plainText = bytes.toString(CryptoJS.enc.utf8)
+        const bytes = crypto.AES.decrypt(message, secretWord)
+
+        console.log(bytes)
+        const plainText = bytes.toString(crypto.enc.utf8)
 
         //update the message to be the encrypted message
         targetMessage.message = plainText
 
         await targetMessage.save()
+        res.json(targetMessage)
     }catch(error){
         res.status(400).json({ message: error.message })
     }    
@@ -82,9 +84,10 @@ exports.deleteMessage = async function(req,res) {
 exports.updateMessage = async function(req,res) {
     try{
         const updates = Object.keys(req.body)
-        const targetMessage = await Msg.findOne({ _id: req.params.id })
+        const targetMessage = await User.findOne({ _id: req.params.id })
         updates.forEach(update => targetMessage[update] = req.body[update])
         await targetMessage.save()
+        res.json({ message: 'message updated' })
     }catch(error){
 
     }
