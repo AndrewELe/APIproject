@@ -35,15 +35,17 @@ exports.decodeMessage = async (req, res) => {
         const targetMessage = await Msg.findOne({ _id: req.params.id })
         
         //defining variables message and user for manipulation
-        const message = req.message
+        const message = targetMessage.message
         const secretWord = req.user.secretWord
 
+        console.log(message)
         //decrypting message
         const bytes = crypto.AES.decrypt(message, secretWord)
 
         console.log(bytes)
-        const plainText = bytes.toString(crypto.enc.utf8)
+        const plainText = bytes.toString(crypto.enc.Utf8)
 
+        console.log(plainText)
         //update the message to be the encrypted message
         targetMessage.message = plainText
 
@@ -83,13 +85,10 @@ exports.deleteMessage = async function(req,res) {
 // exports update message
 exports.updateMessage = async function(req,res) {
     try{
-        const updates = Object.keys(req.body)
-        const targetMessage = await User.findOne({ _id: req.params.id })
-        updates.forEach(update => targetMessage[update] = req.body[update])
-        await targetMessage.save()
-        res.json({ message: 'message updated' })
+        const message = await Msg.findOneAndUpdate({ _id: req.params.id}, req.body, { new: true })
+        res.json(message)
     }catch(error){
-
+        res.status(400).json({ message: error.message })
     }
 }
 

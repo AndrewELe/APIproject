@@ -11,13 +11,6 @@ const messageSchema = new Schema({
     timestamps: true
 })
 
-/*
-messageSchema.pre('save', async function(next){
-    this.text = await bcrypt.hash(this.text, 10)
-    null;
-    next()
-*/
-
 const Message = model('Message', messageSchema)
 
 module.exports = Message

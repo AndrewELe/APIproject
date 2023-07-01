@@ -65,11 +65,73 @@ describe('testing the messages endpoints', () => {
     })
     
     test('update message', async () => {
+        const user = new User({
+            name: 'test6',
+            email: 'test6@gunky.com',
+            password: 'test1234',
+            secretWord: 'test'
+        })
+        await user.save()
+        const token = await user.generateAuthToken()
 
+        const responseUser = await request(app) // this holds the token
+            .post('/users/login')
+            .send({ 
+                email: 'test6@gunky.com',
+                password: 'test1234'
+        })
+
+        const message = new Message({
+            addressedTo: 'test',
+            recieved: false,
+            message: 'testing message6',
+            user: responseUser.body.user._id
+        })
+        await message.save()
+
+        const response = await request(app)
+            .put(`/messages/${message._id}`)
+            .set('Authorization', `Bearer ${token}`)
+            .send({            
+                addressedTo: 'test',
+                recieved: false,
+                message: 'testing message6 change',
+                user: responseUser.body.user._id
+            })
+
+        expect(response.body.message).toBe('testing message6 change')
     })
     
     test('delete message', async () => {
-        
+        const user = new User({
+            name: 'test4',
+            email: 'test4@gunky.com',
+            password: 'test1234',
+            secretWord: 'test'
+        })
+        await user.save()
+        const token = await user.generateAuthToken()
+
+        const responseUser = await request(app) // this holds the token
+            .post('/users/login')
+            .send({ 
+                email: 'test4@gunky.com',
+                password: 'test1234'
+        })
+
+        const message = new Message({
+            addressedTo: 'test',
+            recieved: false,
+            message: 'testing message4',
+            user: responseUser.body.user._id
+        })
+        await message.save()
+
+        const response = await request(app)
+            .delete(`/messages/${message._id}`)
+            .set('Authorization', `Bearer ${token}`)
+
+        expect(response.statusCode).toBe(200)
     })
 
     test('create message', async () => {
@@ -113,8 +175,8 @@ describe('testing the messages endpoints', () => {
 
     test('display message', async () => {
         const user = new User({
-            name: 'test3',
-            email: 'test3@gunky.com',
+            name: 'test5',
+            email: 'test5@gunky.com',
             password: 'test1234',
             secretWord: 'test'
         })
@@ -124,14 +186,14 @@ describe('testing the messages endpoints', () => {
         const responseUser = await request(app) // this holds the token
             .post('/users/login')
             .send({ 
-                email: 'test3@gunky.com',
+                email: 'test5@gunky.com',
                 password: 'test1234'
         })
 
         const message = new Message({
             addressedTo: 'test',
             recieved: false,
-            message: 'testing message3',
+            message: 'testing message5',
             user: responseUser.body.user._id
         })
         await message.save()
@@ -140,6 +202,6 @@ describe('testing the messages endpoints', () => {
             .get(`/messages/${message._id}`)
             .set('Authorization', `Bearer ${token}`)
 
-        expect(response.body.message).toBe('testing message3')
+        expect(response.body.message).toBe('testing message5')
     })
 })
