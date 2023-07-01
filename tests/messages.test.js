@@ -2,7 +2,7 @@ const request = require('supertest')
 const mongoose = require('mongoose')
 const { MongoMemoryServer } = require('mongodb-memory-server')
 const app = require('../app')
-const server = app.listen(8080, () => console.log('Server is running on port 8080'))
+const server = app.listen(8081, () => console.log('Server is running on port 8081'))
 
 //importing crypto-js for testing encoding and decoding
 const crypto = require('crypto-js')
@@ -33,14 +33,13 @@ describe('testing the messages endpoints', () => {
             secretWord: 'test'
         })
         await user.save()
+        const token = await user.generateAuthToken()
 
-        console.log(user.name)
         const responseUser = await request(app) // this holds the token
-        
-        .post('/users/login')
-        .send({ 
-            email: 'test1@gunky.com',
-            password: 'test1234'
+            .post('/users/login')
+            .send({ 
+                email: 'test1@gunky.com',
+                password: 'test1234'
         })
 
         const message = new Message({
@@ -55,20 +54,9 @@ describe('testing the messages endpoints', () => {
 
         const response = await request(app)
             .put(`/messages/encode/${message._id}`)
+            .set('Authorization', `Bearer ${token}`)
 
-        //code for decoding
-        const targetMessage = await message.findOne({ _id: req.params.id })
-        const targetUser = await user.findOne({ _id: req.user._id })
-            
-        //defining variables message and user for manipulation
-        const messageTest = targetMessage.message
-        const key = targetUser.secretWord
-    
-        //decrypting message
-        const bytes = crypto.AES.decrypt(messageTest, key)
-        const plainText = bytes.toString(CryptoJS.enc.utf8)
-
-        expect(response.body.message).toBe(plainText)
+        expect(response.statusCode).toBe(200)
         
     })
 
@@ -81,21 +69,77 @@ describe('testing the messages endpoints', () => {
     })
     
     test('delete message', async () => {
-
+        
     })
 
     test('create message', async () => {
-        const message = await request(app)
-        .post('/messages')
-        .send({
-            addressedTo: 'test',
-            recieved: false,
-            message: 'testing message'
+        const user = new User({
+            name: 'test2',
+            email: 'test2@gunky.com',
+            password: 'test1234',
+            secretWord: 'test'
         })
-    await message.save()
+        await user.save()
+        const token = await user.generateAuthToken()
+
+        const responseUser = await request(app) // this holds the token
+            .post('/users/login')
+            .send({ 
+                email: 'test2@gunky.com',
+                password: 'test1234'
+        })
+
+        const message = new Message({
+                addressedTo: 'test2',
+                recieved: false,
+                message: 'testing message2',
+                user: responseUser.body.user._id
+            })
+        await message.save()
+
+        const response = await request(app)
+            .post(`/messages/${message._id}`)
+            .set('Authorization', `Bearer ${token}`)
+            .send({
+                addressedTo: 'test2',
+                recieved: false,
+                message: 'testing message2',
+                user: responseUser.body.user._id
+            })
+
+        
+        expect(response.body.message).toBe('testing message2')
     })
 
     test('display message', async () => {
-    
+        const user = new User({
+            name: 'test3',
+            email: 'test3@gunky.com',
+            password: 'test1234',
+            secretWord: 'test'
+        })
+        await user.save()
+        const token = await user.generateAuthToken()
+
+        const responseUser = await request(app) // this holds the token
+            .post('/users/login')
+            .send({ 
+                email: 'test3@gunky.com',
+                password: 'test1234'
+        })
+
+        const message = new Message({
+            addressedTo: 'test',
+            recieved: false,
+            message: 'testing message3',
+            user: responseUser.body.user._id
+        })
+        await message.save()
+
+        const response = await request(app)
+            .get(`/messages/${message._id}`)
+            .set('Authorization', `Bearer ${token}`)
+
+        expect(response.body.message).toBe('testing message3')
     })
 })
