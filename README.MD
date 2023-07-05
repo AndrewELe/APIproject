@@ -1,6 +1,7 @@
 ## This is a backend API that allows user login and the user is able to create a message to encode. Other functionality will include the user ability to decode messages but the appropriate keyword must be provided 
 
-<!-- add images here -->
+[wireframe]: https://ibb.co/rMsv3f6
+[flowDiagram]: https://ibb.co/dJY7JnR
 
 ---
 <div align="center"> 
