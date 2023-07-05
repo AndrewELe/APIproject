@@ -7,7 +7,6 @@
 
 ## Getting started
 
----
 
 Requirements: node.js and nodemon(globally installed) postman(for unit API testing) and VS Code
 </div>
@@ -17,6 +16,8 @@ Requirements: node.js and nodemon(globally installed) postman(for unit API testi
 ### Installation
 
 </div>
+
+---
 
 1: clone repository to your local machine with through either the github "<>code" button on the user interface or through your local computer terminal using the command<br> `git clone git@github.com:AndrewELe/APIproject.git` <br>
 
@@ -47,6 +48,8 @@ NOTE: replace username and password with your own credentials, navigate to `http
 
 </div>
 
+---
+
 this project was built with the following technologies <br>
 node.js, javascript, mongoDB <br>
 
@@ -56,6 +59,8 @@ node.js, javascript, mongoDB <br>
 
 </div>
 
+---
+
 below are indications of how the api is designed to be used in conjunction of a front end<br>
  ( note to self plug in image here for wireframing and flow map)
 
@@ -64,6 +69,8 @@ below are indications of how the api is designed to be used in conjunction of a 
 ### future considerations and implimentations
 
 </div>
+
+---
 
 looking forward, some of the icebox items that are intended to be added as features to the backend API
 
@@ -76,6 +83,8 @@ looking forward, some of the icebox items that are intended to be added as featu
 ## Acknoledgements
 
 </div>
+
+---
 
 Arthur, Teo, Josh and August (General Assembly Instructors and TA team)
 Jeff (General Assembly Cohort fellow)
