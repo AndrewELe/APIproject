@@ -31,8 +31,9 @@ NOTE: replace username and password with your own credentials, navigate to `http
 
 6: use postman with the following url `localhost:3000/(any defined additional routing)/:id` to run and test the api on your local machine.
 
-    6a: in postman be sure to create a new user json object and capture the jsonwebtoken that is returned. this webtoken will need to be added under the postman authorization token area with the drop selection being "token bearer"
-    6b: once the token has been added utilizing the rest of the routes should function as expected
+6a: in postman be sure to create a new user json object and capture the jsonwebtoken that is returned. this webtoken will need to be added under the postman authorization token area with the drop selection being "token bearer"
+
+6b: once the token has been added utilizing the rest of the routes should function as expected
 
 ### Built with
 
