@@ -4,8 +4,9 @@
  https://ibb.co/dJY7JnR
 
 
-![alt text] (https://i.ibb.co/P4QtMzh/api-diagram-flow.jpg)
-![alt text] (https://i.ibb.co/Dg2Lg3Z/excalidraw-final.png)
+<img src="https://i.ibb.co/P4QtMzh/api-diagram-flow.jpg">
+
+<img src="https://i.ibb.co/Dg2Lg3Z/excalidraw-final.png">
 ---
 <div align="center"> 
 
