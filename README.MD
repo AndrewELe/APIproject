@@ -1,9 +1,5 @@
 ## This is a backend API that allows user login and the user is able to create a message to encode. Other functionality will include the user ability to decode messages but the appropriate keyword must be provided 
 
-<img src="https://i.ibb.co/P4QtMzh/api-diagram-flow.jpg">
-
-<img src="https://i.ibb.co/Dg2Lg3Z/excalidraw-final.png">
-
 ---
 
 <div align="center"> 
@@ -65,7 +61,10 @@ node.js, javascript, mongoDB <br>
 ---
 
 below are indications of how the api is designed to be used in conjunction of a front end<br>
- ( note to self plug in image here for wireframing and flow map)
+
+<img src="https://i.ibb.co/P4QtMzh/api-diagram-flow.jpg">
+
+<img src="https://i.ibb.co/Dg2Lg3Z/excalidraw-final.png">
 
 <div align="center">
 
