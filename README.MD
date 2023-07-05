@@ -1,20 +1,24 @@
-## This is a backend API that allows user login and the user is able to create a message to encode. Other functionality includes the user to decode messages but the appropriate keyword must be provided 
+## This is a backend API that allows user login and the user is able to create a message to encode. Other functionality will include the user ability to decode messages but the appropriate keyword must be provided 
+
+<!-- add images here -->
 
 ---
+<div align="center"> 
 
 ## Getting started
 
-Requirements: node.js and nodemon(globally installed) postman(for unit API testing)
+Requirements: node.js and nodemon(globally installed) postman(for unit API testing) and VS Code
+</div>
 
 ### Installation
 
-1: clone repositor to your local machine
+1: clone repository to your local machine with through either the github "<>code" button on the user interface or through your local computer terminal using the command `git clone git@github.com:AndrewELe/APIproject.git`
 
 2: in terminal navigate to the cloned repository root directory
 
 3: run `touch .env`
 
-3a: in terminal run `code .` to alter the .env file and include
+3a: in terminal run `code .` and navigate to the file to alter the .env file and include
 
         MONGO_URI=mongodb+srv://<username>:<password>@cluster0.y803gsb.mongodb.net/APIproject?retryWrites=true&w=majority
         SECRET=<secret word hash>
@@ -25,13 +29,30 @@ NOTE: replace username and password with your own credentials, navigate to `http
 
 5: run `npm i` to install these packages
 
-6: use postman with the following url `localhost:3000/` to run and test the api on your local machine.
+6: use postman with the following url `localhost:3000/(any defined additional routing)/:id` to run and test the api on your local machine.
 
-            
+    6a: in postman be sure to create a new user json object and capture the jsonwebtoken that is returned. this webtoken will need to be added under the postman authorization token area with the drop selection being "token bearer"
+    6b: once the token has been added utilizing the rest of the routes should function as expected
 
-## progress notes
-### 6/23/2023
-### realizing that while making the api the loged in user can define their own secret word to use for generating the token, that secret word can than be given to another user and the hashed message can be decoded through jsonwebtoken. how do i point to the user defined secret word in the userSchema model that is created so the secret word can be utilized in the messageSchema model?
+### Built with
 
+this project was built with the following technologies <br>
+node.js, javascript, mongoDB <br>
 
-make model for message connecting with messageID and user (message should be associated to the logged in user)
+### front end usage example
+
+below are indications of how the api is designed to be used in conjunction of a front end<br>
+ ( note to self plug in image here for wireframing and flow map)
+
+### future considerations and implimentations
+
+looking forward, some of the icebox items that are intended to be added as features to the backend API
+
+-[] include login and logout functionality
+-[] include decoding functionality
+-[] deploy to web server for online access to allow usage of the API without having to clone repositories
+
+## Acknoledgements
+
+Arthur, Teo, Josh and August (General Assembly Instructors and TA team)
+Jeff (General Assembly Cohort fellow)
