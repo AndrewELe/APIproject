@@ -49,9 +49,9 @@ below are indications of how the api is designed to be used in conjunction of a 
 
 looking forward, some of the icebox items that are intended to be added as features to the backend API
 
--[] include login and logout functionality
--[] include decoding functionality
--[] deploy to web server for online access to allow usage of the API without having to clone repositories
+- [] include login and logout functionality
+- [] include decoding functionality
+- [] deploy to web server for online access to allow usage of the API without having to clone repositories
 
 ## Acknoledgements
 
