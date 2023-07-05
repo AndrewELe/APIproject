@@ -12,24 +12,24 @@ Requirements: node.js and nodemon(globally installed) postman(for unit API testi
 
 ### Installation
 
-1: clone repository to your local machine with through either the github "<>code" button on the user interface or through your local computer terminal using the command `git clone git@github.com:AndrewELe/APIproject.git`
+1: clone repository to your local machine with through either the github "<>code" button on the user interface or through your local computer terminal using the command<br> `git clone git@github.com:AndrewELe/APIproject.git` <br>
 
 2: in terminal navigate to the cloned repository root directory
 
-3: run `touch .env`
+3: run <br> `touch .env` <br>
 
-3a: in terminal run `code .` and navigate to the file to alter the .env file and include
+3a: in terminal run <br> `code .`<br> and navigate to the file to alter the .env file and include
 
         MONGO_URI=mongodb+srv://<username>:<password>@cluster0.y803gsb.mongodb.net/APIproject?retryWrites=true&w=majority
         SECRET=<secret word hash>
 
-NOTE: replace username and password with your own credentials, navigate to `https://emn178.github.io/online-tools/sha256.html` to make your own secret word hash (it should be a string of random characters)
+NOTE: replace username and password with your own credentials, navigate to <br>`https://emn178.github.io/online-tools/sha256.html`<br> to make your own secret word hash (it should be a string of random characters)
 
 4: With your system terminal, you will need to install the following packages: <br> express, bcrypt, dotenv, jsonwebtoken, mongoose, and morgan. <br> further dependecies that will need to be install for testing purposes are as follorws: <br> artillery (1.7.9), jest, mongodb-memory-server (8.12.0), and supertest. <br>
 
 5: run `npm i` to install these packages
 
-6: use postman with the following url `localhost:3000/(any defined additional routing)/:id` to run and test the api on your local machine.
+6: use postman with the following url <br> `localhost:3000/(any defined additional routing)/:id` <br> to run and test the api on your local machine.
 
 6a: in postman be sure to create a new user json object and capture the jsonwebtoken that is returned. this webtoken will need to be added under the postman authorization token area with the drop selection being "token bearer"
 
