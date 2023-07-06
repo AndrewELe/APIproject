@@ -29,7 +29,7 @@ Requirements: node.js, npm, nodemon(globally installed), postman(for unit API te
         MONGO_URI=mongodb+srv://<username>:<password>@cluster0.y803gsb.mongodb.net/APIproject?retryWrites=true&w=majority
         SECRET=<secret word hash>
 
-NOTE: replace username and password with your own credentials, navigate to `https://emn178.github.io/online-tools/sha256.html`<br> to make your own secret word hash (it should be a string of random characters)
+NOTE: replace username and password with your own credentials, navigate to `https://emn178.github.io/online-tools/sha256.html` in your browser of choice to make your own secret word hash (it should be a string of random characters)
 
 4: With your system terminal, you will need to install the following packages: <br> express, bcrypt, dotenv, jsonwebtoken, mongoose, and morgan. <br> further dependecies that will need to be install for testing purposes are as follorws: <br> artillery (1.7.9), jest, mongodb-memory-server (8.12.0), and supertest. <br>
 
