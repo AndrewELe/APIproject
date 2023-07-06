@@ -14,7 +14,7 @@ exports.encodeMessage = async (req, res) => {
 
         //encrypting message
         const cipherText = crypto.AES.encrypt(message, secretWord).toString()
-
+        console.log(cipherText)
         //update the message to be the encrypted message
         targetMessage.message = cipherText
 
@@ -45,12 +45,14 @@ exports.decodeMessage = async (req, res) => {
 
         console.log(bytes) //outputs capture variables of string information?
         const plainText = bytes.toString(crypto.enc.Utf8)
-
+        console.log('1')
         console.log(plainText) //does not output decrypted string
         //update the message to be the encrypted message
+        console.log('2')
         targetMessage.message = plainText
 
         await targetMessage.save()
+        console.log('3')
         res.json(targetMessage)
     }catch(error){
         res.status(400).json({ message: error.message })
