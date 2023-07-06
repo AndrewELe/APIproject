@@ -7,7 +7,7 @@
 ## Getting started
 
 
-Requirements: node.js and nodemon(globally installed) postman(for unit API testing) and VS Code
+Requirements: node.js, npm, nodemon(globally installed), postman(for unit API testing) and VS Code
 </div>
 
 <div align="center">
