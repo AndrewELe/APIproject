@@ -35,11 +35,15 @@ NOTE: replace username and password with your own credentials, navigate to `http
 
 5: run `npm i` to install these packages
 
-6: use postman with the following url <br> `localhost:3000/(any defined additional routing)/(:id if required for specific routing)` <br> to run and test the api on your local machine.
+6: in terminal run `npm run dev' to start server and verify that the API is running and connected to the mongoDB server
 
-6a: in postman be sure to create a new user json object and capture the jsonwebtoken that is returned. this webtoken will need to be added under the postman authorization token area with the drop selection being "token bearer"
+7: in a second terminal run `npm run tests` to do a quick verification that all routing and functionality is working
 
-6b: once the token has been added utilizing the rest of the routes should function as expected
+8: use postman with the following url <br> `localhost:3000/(any defined additional routing)/(:id if required for specific routing)` <br> to run and test the api on your local machine.
+
+8a: in postman be sure to create a new user json object and capture the jsonwebtoken that is returned. this webtoken will need to be added under the postman authorization token area with the drop selection being "token bearer"
+
+8b: once the token has been added utilizing the rest of the routes should function as expected
 
 <div align="center">
 
