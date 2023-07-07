@@ -43,7 +43,7 @@ NOTE: replace username and password with your own credentials, navigate to `http
 
 <div align="center">
 
-<img src="https://i.ibb.co/NVKzhVK/routing-flow.png"> 
+<img src="https://i.ibb.co/RvcWnvc/routing-flow.png"> 
 
 </div>
 
