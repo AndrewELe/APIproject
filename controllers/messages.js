@@ -35,25 +35,38 @@ exports.decodeMessage = async (req, res) => {
         const targetMessage = await Msg.findOne({ _id: req.params.id })
         
         //defining variables message and user for manipulation
-        const message = targetMessage.message
+        const jsonMessage = targetMessage.message
         const secretWord = req.user.secretWord
+        const message = JSON.stringify(jsonMessage)
 
         console.log(message) //captures the message that is encrypted
         console.log(secretWord) //unit test this, ensure that the key is actually being captured
+        
         //decrypting message
         const bytes = crypto.AES.decrypt(message, secretWord)
 
         console.log(bytes) //outputs capture variables of string information?
         const plainText = bytes.toString(crypto.enc.Utf8)
+    
+
         console.log('1')
-        console.log(plainText) //does not output decrypted string
-        //update the message to be the encrypted message
+        console.log(typeof plainText) //does not output decrypted string, it is a string but the output appears to be null and mongoose will not save the null value
+        
         console.log('2')
         targetMessage.message = plainText
 
         await targetMessage.save()
         console.log('3')
         res.json(targetMessage)
+
+
+        /*
+
+        revert crypto to version 3.1.9-1?
+        https://github.com/imchintan/react-native-crypto-js/issues/6
+
+        */
+
     }catch(error){
         res.status(400).json({ message: error.message })
     }    

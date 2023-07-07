@@ -29,17 +29,27 @@ Requirements: node.js, npm, nodemon(globally installed), postman(for unit API te
         MONGO_URI=mongodb+srv://<username>:<password>@cluster0.y803gsb.mongodb.net/APIproject?retryWrites=true&w=majority
         SECRET=<secret word hash>
 
-NOTE: replace username and password with your own credentials, navigate to `https://emn178.github.io/online-tools/sha256.html`<br> to make your own secret word hash (it should be a string of random characters)
+NOTE: replace username and password with your own credentials, navigate to `https://emn178.github.io/online-tools/sha256.html` in your browser of choice to make your own secret word hash (it should be a string of random characters)
 
 4: With your system terminal, you will need to install the following packages: <br> express, bcrypt, dotenv, jsonwebtoken, mongoose, and morgan. <br> further dependecies that will need to be install for testing purposes are as follorws: <br> artillery (1.7.9), jest, mongodb-memory-server (8.12.0), and supertest. <br>
 
 5: run `npm i` to install these packages
 
-6: use postman with the following url <br> `localhost:3000/(any defined additional routing)/(:id if required for specific routing)` <br> to run and test the api on your local machine.
+6: in terminal run `npm run dev' to start server and verify that the API is running and connected to the mongoDB server
 
-6a: in postman be sure to create a new user json object and capture the jsonwebtoken that is returned. this webtoken will need to be added under the postman authorization token area with the drop selection being "token bearer"
+7: in a second terminal run `npm run tests` to do a quick verification that all routing and functionality is working
 
-6b: once the token has been added utilizing the rest of the routes should function as expected
+8: use postman with the following url <br> `localhost:3000/(any defined additional routing)/(:id if required for specific routing)` <br> to run and test the api on your local machine.
+
+<div align="center">
+
+<img src="https://i.ibb.co/NjDgFpq/routing-flow.png"> 
+
+</div>
+
+8a: in postman be sure to create a new user json object and capture the jsonwebtoken that is returned. this webtoken will need to be added under the postman authorization token area with the drop selection being "token bearer"
+
+8b: once the token has been added utilizing the rest of the routes should function as expected
 
 <div align="center">
 
