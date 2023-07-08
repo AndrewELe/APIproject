@@ -41,6 +41,8 @@ NOTE: replace username and password with your own credentials, navigate to `http
 
 8: in postman be sure to create a new user json object and capture the jsonwebtoken that is returned. this webtoken will need to be added under the postman authorization token area with the drop selection being "token bearer" (this allows you to use the other routing and acts as if the user has been logged into and varified by the API). the user must be created using a **POST** request and under the **BODY** field **RAW** data type must be selected with the drop selection being **JSON**
 
+8a: once the token has been added utilizing the rest of the routes should function as expected 
+
 ### example
         {
           "name" : "test",
@@ -59,9 +61,7 @@ NOTE: replace username and password with your own credentials, navigate to `http
 
 </div>
 
-8a: use postman with the following url <br> `localhost:3000/(any defined additional routing)/(:id if required for specific routing)` <br> to run and test the api on your local machine.
-
-8b: once the token has been added utilizing the rest of the routes should function as expected 
+8b: use postman with the following url <br> `localhost:3000/(any defined additional routing)/(:id if required for specific routing)` <br> to run and test the api on your local machine.
 
 9: artillery will test the amount of clients attempting to access the API, you can run this test by typing the following in your terminal `npm run load`
 
