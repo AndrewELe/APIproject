@@ -37,7 +37,7 @@ NOTE: replace username and password with your own credentials, navigate to `http
 
 6: in terminal run `npm run dev` to start server and verify that the API is running and connected to the mongoDB server
 
-7: in a second terminal run `npm run tests` to do a quick verification that all routing and functionality is working
+7: in a second terminal run `npm run test` to do a quick verification that all routing and functionality is working
 
 8: use postman with the following url <br> `localhost:3000/(any defined additional routing)/(:id if required for specific routing)` <br> to run and test the api on your local machine.
 
