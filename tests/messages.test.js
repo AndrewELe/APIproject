@@ -25,7 +25,7 @@ afterAll(async () => {
 describe('testing the messages endpoints', () => {
             
     test('testing encoding messages', async () => {
-        // test this by encoding the message and decoding the return here and checking if its actually the string
+        
         const user = new User({
             name: 'test1',
             email: 'test1@gunky.com',
@@ -61,7 +61,7 @@ describe('testing the messages endpoints', () => {
     })
 
     test('testing decoding messages', async () => {
-    
+        
     })
     
     test('update message', async () => {

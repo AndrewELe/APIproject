@@ -51,6 +51,8 @@ NOTE: replace username and password with your own credentials, navigate to `http
 
 8b: once the token has been added utilizing the rest of the routes should function as expected
 
+9: artillery will test the amount of clients attempting to access the API, you can run this test by typing the following in your terminal 'npm run load'
+
 <div align="center">
 
 ### Built with
@@ -87,8 +89,12 @@ below are indications of how the api is designed to be used in conjunction of a 
 looking forward, some of the icebox items that are intended to be added as features to the backend API
 
 - [] include login and logout functionality
-- [] include decoding functionality
+- [] include decoding functionality *see notes below*
 - [] deploy to web server for online access to allow usage of the API without having to clone repositories
+
+multiple attempts were made to create functionality of decoding the message. JSON.parse method appears to send the encrypted message to the messages object as a string but decoding the string continually returns an empty string. upon looking for documentation i had stumbled accross comments that this is a known problem for the current version of crypto-js. below is a link to the development communtiy indicating the issue.
+
+https://github.com/imchintan/react-native-crypto-js/issues/6
 
 <div align="center">
 
