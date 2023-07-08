@@ -111,6 +111,10 @@ revisitation of the encode and decode methods will be required, methods will be 
 Arthur, Teo, Josh and August (General Assembly Instructors and TA team)
 Jeff (General Assembly Cohort fellow)
 
+<div align="center">
+
 ## Project board
+
+</div>
 
 https://github.com/users/AndrewELe/projects/1/views/1
