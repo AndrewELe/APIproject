@@ -41,6 +41,14 @@ NOTE: replace username and password with your own credentials, navigate to `http
 
 8: in postman be sure to create a new user json object and capture the jsonwebtoken that is returned. this webtoken will need to be added under the postman authorization token area with the drop selection being "token bearer" (this allows you to use the other routing and acts as if the user has been logged into and varified by the API). the user must be created using a **POST** request and under the **BODY** field **RAW** data type must be selected with the drop selection being **JSON**
 
+### example
+        {
+          "name" : "test",
+          "email" : "test@test.com",
+          "password" : "test123",
+          "secretWord" : "word"
+        }
+
 *see diagram below for required fields for the json object to send through postman*
 
 <div align="center">
