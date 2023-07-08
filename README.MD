@@ -35,7 +35,7 @@ NOTE: replace username and password with your own credentials, navigate to `http
 
 5: run `npm i` to install these packages
 
-6: in terminal run `npm run dev' to start server and verify that the API is running and connected to the mongoDB server
+6: in terminal run `npm run dev` to start server and verify that the API is running and connected to the mongoDB server
 
 7: in a second terminal run `npm run tests` to do a quick verification that all routing and functionality is working
 
@@ -49,9 +49,9 @@ NOTE: replace username and password with your own credentials, navigate to `http
 
 8a: in postman be sure to create a new user json object and capture the jsonwebtoken that is returned. this webtoken will need to be added under the postman authorization token area with the drop selection being "token bearer"
 
-8b: once the token has been added utilizing the rest of the routes should function as expected
+8b: once the token has been added utilizing the rest of the routes should function as expected 
 
-9: artillery will test the amount of clients attempting to access the API, you can run this test by typing the following in your terminal 'npm run load'
+9: artillery will test the amount of clients attempting to access the API, you can run this test by typing the following in your terminal `npm run load`
 
 <div align="center">
 
@@ -89,7 +89,7 @@ below are indications of how the api is designed to be used in conjunction of a 
 looking forward, some of the icebox items that are intended to be added as features to the backend API
 
 - [] include login and logout functionality
-- [] include decoding functionality *see notes below*
+- [] include decoding functionality **see notes below**
 - [] deploy to web server for online access to allow usage of the API without having to clone repositories
 
 multiple attempts were made to create functionality of decoding the message. JSON.parse method appears to send the encrypted message to the messages object as a string but decoding the string continually returns an empty string. upon looking for documentation i had stumbled accross comments that this is a known problem for the current version of crypto-js. below is a link to the development communtiy indicating the issue.
