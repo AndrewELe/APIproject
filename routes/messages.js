@@ -18,7 +18,7 @@ router.get('/:id', userController.auth, messageController.displayMessage)
 //encoding message
 router.put('/encode/:id', userController.auth, messageController.encodeMessage)
 
-//decoding message
-router.put('/decode/:id', userController.auth, messageController.decodeMessage)
+//decoding message, deprecated function and routing for now
+// router.put('/decode/:id', userController.auth, messageController.decodeMessage)
 
 module.exports = router

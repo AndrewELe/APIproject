@@ -26,7 +26,7 @@ exports.encodeMessage = async (req, res) => {
 }
 
 
-// exports decode message
+// exports decode message, this function is deprecated for now, will be updated in the future
 
 exports.decodeMessage = async (req, res) => {
     //decoding message takes an input from user and a encoded message from user and utilizes crpyto to decode message
@@ -37,28 +37,28 @@ exports.decodeMessage = async (req, res) => {
         //defining variables message and user for manipulation
         const jsonMessage = targetMessage.message
         const secretWord = req.user.secretWord
-        const message = JSON.stringify(jsonMessage)
+        console.log(typeof jsonMessage)
+        // const message = JSON.stringify(jsonMessage)
 
-        console.log(message) //captures the message that is encrypted
-        console.log(secretWord) //unit test this, ensure that the key is actually being captured
+        // console.log(message) //captures the message that is encrypted
+        // console.log(secretWord) //unit test this, ensure that the key is actually being captured
         
         //decrypting message
-        const bytes = crypto.AES.decrypt(message, secretWord)
+        const bytes = crypto.AES.decrypt(jsonMessage, secretWord)
 
         console.log(bytes) //outputs capture variables of string information?
         const plainText = bytes.toString(crypto.enc.Utf8)
     
 
         console.log('1')
-        console.log(typeof plainText) //does not output decrypted string, it is a string but the output appears to be null and mongoose will not save the null value
+        console.log(plainText) //does not output decrypted string, it is a string but the output appears to be null and mongoose will not save the null value
         
         console.log('2')
         targetMessage.message = plainText
 
         await targetMessage.save()
         console.log('3')
-        res.json(targetMessage)
-
+        res.json(targetMessage) 
 
         /*
 
@@ -69,6 +69,7 @@ exports.decodeMessage = async (req, res) => {
 
     }catch(error){
         res.status(400).json({ message: error.message })
+        console.log(error)
     }    
 }
 

@@ -1,6 +1,6 @@
 require('dotenv').config()
 const { model, Schema } = require('mongoose')
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken') //clear this
 
 const messageSchema = new Schema({ 
     addressedTo: { type: String, required: true },
