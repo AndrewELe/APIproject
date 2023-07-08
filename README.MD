@@ -41,6 +41,8 @@ NOTE: replace username and password with your own credentials, navigate to `http
 
 8: use postman with the following url <br> `localhost:3000/(any defined additional routing)/(:id if required for specific routing)` <br> to run and test the api on your local machine.
 
+*see diagram below under "front end usage example" for required fields for the json object to send through postman*
+
 <div align="center">
 
 <img src="https://i.ibb.co/NjDgFpq/routing-flow.png"> 
@@ -89,7 +91,7 @@ below are indications of how the api is designed to be used in conjunction of a 
 looking forward, some of the icebox items that are intended to be added as features to the backend API
 
 - [] include login and logout functionality
-- [] include decoding functionality **see notes below**
+- [] include decoding functionality *see notes below*
 - [] deploy to web server for online access to allow usage of the API without having to clone repositories
 
 multiple attempts were made to create functionality of decoding the message. JSON.parse method appears to send the encrypted message to the messages object as a string but decoding the string continually returns an empty string. upon looking for documentation i had stumbled accross comments that this is a known problem for the current version of crypto-js. below is a link to the development communtiy indicating the issue.
