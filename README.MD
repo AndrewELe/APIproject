@@ -98,6 +98,8 @@ multiple attempts were made to create functionality of decoding the message. JSO
 
 https://github.com/imchintan/react-native-crypto-js/issues/6
 
+revisitation of the encode and decode methods will be required, methods will be attempted using ATOB and BTOA methods
+
 <div align="center">
 
 ## Acknoledgements
