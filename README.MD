@@ -41,7 +41,7 @@ NOTE: replace username and password with your own credentials, navigate to `http
 
 8: use postman with the following url <br> `localhost:3000/(any defined additional routing)/(:id if required for specific routing)` <br> to run and test the api on your local machine.
 
-*see diagram below under "front end usage example" for required fields for the json object to send through postman*
+*see diagram below for required fields for the json object to send through postman*
 
 <div align="center">
 
